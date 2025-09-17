@@ -8,7 +8,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from django.shortcuts import render, redirect, get_object_or_404
-
 from main.forms import NewsForm
 from main.models import News
 
@@ -24,7 +23,7 @@ def show_main(request):
 
     context = {
         'npm' : '2406435963',
-        'name': 'Jefferson Tirza Liman',
+        'name': request.user.username,
         'class': 'PBP B',
         'news_list' : news_list,
         'last_login': request.COOKIES.get('last_login', 'Never')
